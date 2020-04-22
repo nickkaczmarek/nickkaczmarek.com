@@ -47,7 +47,7 @@ const Header = ({ siteTitle }) => (
     <StyledNav>
       <StyledLink to={"/"}>{siteTitle}</StyledLink>
       <RightNav>
-        <StyledAnchor to={"rss.xml"}>rss</StyledAnchor>
+        <StyledAnchor href={"rss.xml"}>rss</StyledAnchor>
       </RightNav>
     </StyledNav>
   </StyledHeader>
