@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`Nick Kaczmarek`, `nickkaczmarek.com homepage`]} />
     <div>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      {data.allMarkdownRemark.edges.map(({ node }, index) => (
         <div key={node.id}>
           <Link
             to={node.fields.slug}
@@ -34,7 +34,8 @@ const IndexPage = ({ data }) => (
                 — {node.frontmatter.date}
               </span>
             </h3>
-            <p>{node.excerpt}</p>
+            <div dangerouslySetInnerHTML={{ __html: node.html }}></div>
+            {data.allMarkdownRemark.edges.length - 1 !== index ? <hr /> : null}
           </Link>
         </div>
       ))}
@@ -56,7 +57,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          html
         }
       }
     }

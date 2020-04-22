@@ -38,12 +38,16 @@ const StyledLink = styled(Link)`
   font-size: 1.5rem;
 `;
 
+const StyledAnchor = styled.a`
+  font-size: 1.5rem;
+`;
+
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <StyledNav>
       <StyledLink to={"/"}>{siteTitle}</StyledLink>
       <RightNav>
-        <StyledLink to={"rss.xml"}>rss</StyledLink>
+        <StyledAnchor to={"rss.xml"}>rss</StyledAnchor>
       </RightNav>
     </StyledNav>
   </StyledHeader>
